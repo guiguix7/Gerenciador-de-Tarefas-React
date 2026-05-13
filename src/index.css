@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0b1320;
+  --bg-alt: #12223a;
+  --text: #f5f0e6;
+  --muted: #c6cfdd;
+  --primary: #ffb347;
+  --primary-strong: #ff7a18;
+  --secondary: #4dd0e1;
+  --card: rgba(15, 24, 38, 0.72);
+  --surface: rgba(11, 20, 32, 0.8);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 30px 60px rgba(3, 8, 20, 0.55);
+  --ring: rgba(255, 179, 71, 0.35);
+  --chip-bg: rgba(255, 179, 71, 0.14);
+  --chip-text: #ffcf91;
+  --chip-border: rgba(255, 179, 71, 0.4);
+  --font-body: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Georgia", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background: linear-gradient(130deg, #0b1320 0%, #152b4f 48%, #17253a 100%);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  filter: blur(0px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  top: -12rem;
+  right: -6rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 179, 71, 0.55),
+    transparent 70%
+  );
+}
+
+body::after {
+  bottom: -14rem;
+  left: -8rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(77, 208, 225, 0.45),
+    transparent 70%
+  );
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(255, 179, 71, 0.3);
+}

@@ -1,0 +1,247 @@
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.hero {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 720px;
+  animation: rise 700ms ease both;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 3vw + 1.6rem, 4.1rem);
+  line-height: 1.05;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 34rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  animation: rise 700ms ease both;
+}
+
+.form-card {
+  border-color: rgba(255, 179, 71, 0.35);
+}
+
+.layout > .card:nth-of-type(1) {
+  animation-delay: 120ms;
+}
+
+.layout > .card:nth-of-type(2) {
+  animation-delay: 240ms;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 179, 71, 0.08),
+    transparent 52%
+  );
+  pointer-events: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+}
+
+.chip {
+  border: 1px solid var(--chip-border);
+  color: var(--chip-text);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: var(--chip-bg);
+}
+
+.chip.ghost {
+  background: transparent;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+input {
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  font-size: 1rem;
+  transition:
+    border 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+input::placeholder {
+  color: var(--muted);
+  opacity: 0.75;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--ring);
+  transform: translateY(-1px);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(120deg, var(--primary), var(--primary-strong));
+  color: #1b1204;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(255, 122, 24, 0.3);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(255, 122, 24, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.list-card {
+  min-height: 320px;
+}
+
+.task-empty {
+  display: grid;
+  gap: 0.75rem;
+  place-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+  background: rgba(10, 20, 32, 0.35);
+  min-height: 240px;
+}
+
+.task-empty h3 {
+  font-size: 1.1rem;
+}
+
+.task-empty p {
+  color: var(--muted);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 2.5rem 1.1rem 4rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
