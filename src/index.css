@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap");
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --bg: #0b1320;
   --bg-alt: #12223a;
@@ -68,12 +70,13 @@ body::after {
   );
 }
 
+/*
 #root {
   min-height: 100vh;
   position: relative;
   z-index: 1;
-}
-
+  }
+  
 img {
   max-width: 100%;
   display: block;
@@ -87,3 +90,4 @@ input {
 ::selection {
   background: rgba(255, 179, 71, 0.3);
 }
+*/
